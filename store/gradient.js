@@ -1,7 +1,6 @@
 import create from "zustand";
-import { GradientState } from "./types";
 
-export const useGradientStore = create<GradientState>((set) => ({
+export const useGradientStore = create((set) => ({
   selectedGradient: { id: 1, from: "#F12711", to: "#F5AF19" },
   gradients: [
     {

@@ -1,7 +1,6 @@
 import create from "zustand";
-import { ArrowState } from "./types";
 
-export const useArrowStore = create<ArrowState>((set) => ({
+export const useArrowStore = create((set) => ({
   isArrowVisible: false,
   X: 0,
   Y: 0,

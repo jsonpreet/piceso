@@ -1,10 +1,9 @@
 import create from "zustand";
 import { MAX_ALLOWED_OPACITY, MIN_ALLOWED_HEIGHT, MIN_ALLOWED_OPACITY, MIN_ALLOWED_RADIUS, MIN_ALLOWED_WIDTH, } from "./constants";
-import { CardState } from "./types";
 import { getValueInRange } from "./utils";
 
 
-export const useCardStore = create<CardState>((set) => ({
+export const useCardStore = create((set) => ({
   height: 332,
   width: 672,
   radius: 16,

@@ -1,7 +1,6 @@
 import create from "zustand";
-import { PanState } from "./types";
 
-export const usePanStore = create<PanState>((set) => ({
+export const usePanStore = create((set) => ({
   isSpaceDown: false,
   isMouseDown: false,
   moveBy: { X: 0, Y: 0 },

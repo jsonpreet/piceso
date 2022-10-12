@@ -1,7 +1,6 @@
 import create from "zustand";
-import { TweetState } from "./types";
 
-export const useTweetStore = create<TweetState>((set) => ({
+export const useTweetStore = create((set) => ({
   tweetInfo: {
     profile_image_url:
       "https://pbs.twimg.com/profile_images/1510928172686225411/bTCh20YN_400x400.jpg",

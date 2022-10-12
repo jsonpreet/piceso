@@ -1,12 +1,6 @@
-import type { NextApiRequest as ApiReq, NextApiResponse as ApiRes } from "next";
-
-type Data = {
-  message: string;
-};
-
 const token = process.env.BEARER_TOKEN;
 
-export default async function handler(req: ApiReq, res: ApiRes<Data>) {
+export default async function handler(req, res) {
   try {
     const id = JSON.parse(req.body).tweetUrl.split(/[\/?]/g)[5];
 

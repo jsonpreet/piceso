@@ -1,4 +1,4 @@
-export function getValueInRange(value: number, min?: number, max?: number) {
+export function getValueInRange(value, min, max) {
     let valueInRange = value;
 
     if (min !== undefined) {

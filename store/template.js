@@ -1,7 +1,6 @@
 import create from "zustand";
-import { TemplateState } from "./types";
 
-export const useTemplateStore = create<TemplateState>((set) => ({
+export const useTemplateStore = create((set) => ({
   selectedTemplate: "first",
   setSelectedTemplate(callback) {
     set(({ selectedTemplate }) => ({
