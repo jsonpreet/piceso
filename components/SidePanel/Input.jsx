@@ -1,20 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useArrowStore } from "../../store/arrow";
 
-interface Props {
-  data: number;
-  action: (callback: (dimension: number) => number) => void;
-  label: string;
-}
 
-export default function Input({ data, action: setData, label }: Props) {
+export default function Input({ data, action: setData, label }) {
   const labelRef = useRef(null);
   const [dataBuffer, setDataBuffer] = useState("");
   const [isPLRequested, setIsPLRequested] = useState(false);
   useEffect(() => {
     setDataBuffer(data + "");
   }, [data]);
-  function keyDownHandler(e: any) {
+  function keyDownHandler(e) {
     switch (e.code) {
       case "ArrowUp":
         setData(() => +dataBuffer + 1);
@@ -35,7 +30,7 @@ export default function Input({ data, action: setData, label }: Props) {
   const setX = useArrowStore((state) => state.setX);
   const setY = useArrowStore((state) => state.setY);
 
-  function mouseDownHandler(e: any) {
+  function mouseDownHandler(e) {
     setIsArrowVisible(() => true);
     setX(() => e.clientX - 10);
     setY(() => e.clientY - 10);
@@ -54,7 +49,7 @@ export default function Input({ data, action: setData, label }: Props) {
     }
   }
 
-  function incrementDimension(e: any) {
+  function incrementDimension(e) {
     setX((X) => X + e.movementX);
     setData((data) => data + e.movementX);
   }
@@ -85,7 +80,7 @@ export default function Input({ data, action: setData, label }: Props) {
         value={dataBuffer}
         onChange={(e) => setDataBuffer(e.target.value)}
         onBlur={setDataOrResetDataBuffer}
-        onClick={(e: any) => e.target.select()}
+        onClick={(e) => e.target.select()}
         onKeyDown={keyDownHandler}
         className="block w-[63%] cursor-default focus:outline-none dark:bg-transparent dark:text-white"
         type="text"

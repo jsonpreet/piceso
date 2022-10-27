@@ -4,8 +4,10 @@
 
 @layer base {
   body {
-    line-height: 0.4;
+    line-height: 1.4;
+    font-size: 16px;
     vertical-align: text-bottom;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, Public Sans, Helvetica Neue, "Segoe UI", Roboto, Arial, sans-serif;
   }
 }
 

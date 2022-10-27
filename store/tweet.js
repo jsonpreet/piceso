@@ -2,15 +2,17 @@ import create from "zustand";
 
 export const useTweetStore = create((set) => ({
   tweetInfo: {
-    profile_image_url:
-      "https://pbs.twimg.com/profile_images/1510928172686225411/bTCh20YN_400x400.jpg",
-    name: "Andrej",
-    username: "reactive_dude",
-    text: "It's not possible to learn everything.\n\nGreat software engineers are not those who know everything but those who can solve problems and adapt.",
-    retweet_count: 51,
-    reply_count: 26,
-    like_count: 323,
+    profile_image_url: "",
+    name: "",
+    username: "",
+    text: "",
+    retweet_count: 800,
+    reply_count: 4672,
+    like_count: 1729,
+    post: {},
+    profile: {},
   },
+  loading: true,
   isMetricsVisible: false,
   setTweetInfo(callback) {
     set(({ tweetInfo }) => ({ tweetInfo: callback(tweetInfo) }));
@@ -20,4 +22,10 @@ export const useTweetStore = create((set) => ({
       isMetricsVisible: callback(isMetricsVisible),
     }));
   },
+  setLoading: (params) => {
+    set((state) => ({
+      loading: params,
+    }));
+  },
+
 }));

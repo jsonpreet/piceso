@@ -4,11 +4,11 @@ import { getValueInRange } from "./utils";
 
 
 export const useCardStore = create((set) => ({
-  height: 332,
-  width: 672,
+  height: 700,
+  width: 800,
   radius: 16,
-  opacity: 70,
-  font: new Set(["system-ui", "sans-serif"]),
+  opacity: 100,
+  font: new Set(["-apple-system, system-ui, BlinkMacSystemFont, Public Sans, Helvetica Neue, Segoe UI, Roboto, Arial", "sans-serif"]),
   setHeight(callback) {
     set(({ height }) => ({ height: getValueInRange(callback(height), MIN_ALLOWED_HEIGHT) }))
   },

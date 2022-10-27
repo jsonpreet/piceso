@@ -2,12 +2,8 @@ import { MutableRefObject } from "react";
 import { useDarkStore } from "../../store/dark";
 import ExportButton from "../ExportButton";
 
-interface Props {
-  setIsPanelOpen: (callback: (c: boolean) => boolean) => void;
-  rootRef: MutableRefObject<undefined>;
-}
 
-export default function ButtonGroup({ setIsPanelOpen, rootRef }: Props) {
+export default function ButtonGroup({ setIsPanelOpen, rootRef }) {
   const setIsDark = useDarkStore((state) => state.setIsDark);
 
   return (

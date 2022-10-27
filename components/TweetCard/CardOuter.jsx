@@ -2,7 +2,7 @@ import CardInner from "./CardInner";
 import { useCardStore } from "../../store/card";
 import { useGradientStore } from "../../store/gradient";
 
-export default function CardOuter({ rootRef }: any) {
+export default function CardOuter({ rootRef }) {
   const gradient = useGradientStore((state) => state.selectedGradient);
 
   const radius = useCardStore((state) => state.radius);

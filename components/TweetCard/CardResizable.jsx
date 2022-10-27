@@ -5,15 +5,15 @@ import { useEffect, useState } from "react";
 import { MIN_ALLOWED_HEIGHT, MIN_ALLOWED_WIDTH } from "../../store/constants";
 
 
-export default function ResizableTweet({ rootRef }: any) {
-  const [widthBuffer, setWidthBuffer] = useState(672);
-  const [heightBuffer, setHeightBuffer] = useState(332);
+export default function ResizableTweet({ rootRef }) {
+  const [widthBuffer, setWidthBuffer] = useState(800);
+  const [heightBuffer, setHeightBuffer] = useState(700);
 
   const cardWidth = useCardStore((state) => state.width);
   const cardHeight = useCardStore((state) => state.height);
   const setWidth = useCardStore((state) => state.setWidth);
   const setHeight = useCardStore((state) => state.setHeight);
-  function resizeHandler(e: any, dir: any) {
+  function resizeHandler(e, dir) {
     switch (dir) {
       case "left":
         setWidthBuffer((width) => width - e.movementX);

@@ -1,6 +1,6 @@
 import html2canvas from "html2canvas";
 
-export default function ExportButton({ rootRef, className }: any) {
+export default function ExportButton({ rootRef, className }) {
   async function exportPNG() {
     if (rootRef.current !== undefined) {
       const canvas = await html2canvas(rootRef.current, {
@@ -28,7 +28,7 @@ export default function ExportButton({ rootRef, className }: any) {
         backgroundColor: null,
       });
 
-      canvas.toBlob((blob: any) => {
+      canvas.toBlob((blob) => {
         const data = [new ClipboardItem({ "image/png": blob })];
         navigator.clipboard.write(data);
       });

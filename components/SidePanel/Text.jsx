@@ -5,14 +5,9 @@ import { useState, Fragment, useEffect } from "react";
 
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
-interface Font {
-  id: number;
-  name: string;
-  value: string;
-  fetched: boolean;
-}
 
-const fonts: Font[] = [
+
+const fonts = [
   { id: 1, name: "System UI", value: "stystem-ui", fetched: true },
   { id: 2, name: "Comic Neue", value: "Comic+Neue", fetched: false },
   { id: 3, name: "Inter", value: "Inter", fetched: false },
@@ -29,7 +24,7 @@ export default function Card() {
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
 
   useEffect(() => {
-    async function onChangeHandler(font: Font) {
+    async function onChangeHandler(font) {
       setSelectedFont(font);
 
       if (font.fetched !== true) {
@@ -116,7 +111,7 @@ export default function Card() {
           </Switch.Label>
           <Switch
             checked={isMetricsVisible}
-            onChange={(val: boolean) => setIsMetricsVisible(() => val)}
+            onChange={(val) => setIsMetricsVisible(() => val)}
             className={`${
               isMetricsVisible ? "bg-blue-600" : "bg-gray-200"
             } relative inline-flex h-6 w-11 items-center rounded-full transition-colors`}
