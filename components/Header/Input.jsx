@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useTweetStore } from "../../store/tweet";
-import { removeQueryParam } from "../../store/utils";
+import { isValidURL, removeQueryParam } from "../../store/utils";
 import axios from "axios";
+import { useDesoStore } from "../../store/deso";
+import { toast } from "react-toastify";
+import { toastOptions } from "../../store/constants";
 
 export default function Input() {
   const router = useRouter()
@@ -12,7 +14,7 @@ export default function Input() {
   const [post, setPost] = useState('')
   const [prefix, setPrefix] = useState('posts')
 
-  const {setTweetInfo, setLoading } = useTweetStore((state) => state);
+  const { setPostInfo, setLoading } = useDesoStore((state) => state);
 
   useEffect(() => {
     if (router.query.url !== undefined && router.query.url !== '') {
@@ -28,21 +30,22 @@ export default function Input() {
 
   useEffect(() => {
     if (postUrl !== '') {
-      //router.replace(`?url=${postUrl}`, undefined, { shallow: true })
       setPrefix(postUrl.split('/')[3])
       setPostID(postUrl.split('/')[4])
       fetchPost(removeQueryParam(postUrl.split('/')[4]));
     }
   }, [postUrl]);
+  
 
   const fetchPost = async (id) => {
+    const toastId = toast.loading("Loading...", toastOptions)
     const request = {
         "PostHashHex": `${id}`,
     }
     const { data } =  await axios.post(`https://node.deso.org/api/v0/get-single-post`,request)
     if (data && data.PostFound) {
       const post = data.PostFound
-      setTweetInfo(() => ({
+      setPostInfo(() => ({
         profile_image_url: post?.ProfileEntryResponse?.ExtraData?.LargeProfilePicURL || `https://node.deso.org/api/v0/get-single-profile-picture/${post?.ProfileEntryResponse?.PublicKeyBase58Check}`,
         name: post?.ProfileEntryResponse.Username,
         username: post?.ProfileEntryResponse.Username,
@@ -53,8 +56,9 @@ export default function Input() {
         post: post,
         profile: post?.ProfileEntryResponse,
       }));
-        setPost(data.PostFound)
-        setLoading(false)
+      setPost(data.PostFound)
+      setLoading(false)
+      toast.update(toastId, { render: "All is good.", type: "success", isLoading: false, autoClose: 2000, hideProgressBar: true  });
     }
   }
 
@@ -63,8 +67,31 @@ export default function Input() {
     e.preventDefault();
     setLoading(true)
     if (e.target.value.length > 0) {
-      setPostUrl(e.target.value)
-      setQuery(e.target.value);
+      if (isValidURL(e.target.value)) {
+        setPostUrl(e.target.value)
+        setQuery(e.target.value);
+      } else {
+        toast.error("Please enter valid url...", toastOptions)
+      }
+      
+    } else {
+      setPostUrl('')
+      setQuery('')
+      setPostID('')
+    }
+  }
+
+  const handlePaste = (e) => {
+    e.preventDefault()
+    setLoading(true)
+    const value = e.clipboardData.getData('text/plain')
+    if (value.length > 0) {
+      if (isValidURL(value)) {
+        setPostUrl(value)
+        setQuery(value);
+      } else {
+        toast.error("Please enter valid url...", toastOptions)
+      }
     } else {
       setPostUrl('')
       setQuery('')
@@ -73,19 +100,20 @@ export default function Input() {
   }
 
   return (
-    <div className="flex items-center justify-center space-x-4 mx-auto md:max-w-[800px] w-full px-4 py-2 bg-gray-50 border border-gray-200 backdrop-blur-lg rounded-xl mb-3 dark:bg-gray-900 dark:border-gray-800">
+    <div className="flex items-center justify-center space-x-4 mx-auto md:max-w-[800px] w-full px-4 py-2 bg-[#0C2F62] border border-[#010812] backdrop-blur-lg rounded-xl mb-3 dark:bg-gray-900 dark:border-gray-800">
       <div className="w-full relative">
+        <div className="absolute left-[12px] top-[6px] text-xl">
+          <img src={`/logo-deso-d.svg`} alt="DeSo" className="text-gray-500 w-6 h-6" />
+        </div>
         <input
-        className="duration-200 shadow dark:bg-gray-900 dark:text-white dark:border-gray-600 border border-gray-200 px-3 py-[6px] rounded-lg my-1 outline-none w-full dark:placeholder-gray-500 dark:hover:border-pink-700 dark:focus:border-pink-700 hover:border-pink-400 focus:border-pink-400 font-code text-[16px] md:text-[0.9rem] dark:!bg-gray-800/50"
-        type="text"
-        placeholder="Paste DeSo URL here"
-        value={query ? query : ''}
-        onChange={(e) => handleSearch(e)}
+          className="duration-200 shadow dark:bg-gray-900 dark:text-white dark:border-gray-600 border border-gray-200 px-3 py-[6px] rounded-lg my-1 outline-none w-full dark:placeholder-gray-500 dark:hover:border-[#010812] leading-6 dark:focus:border-[#010812] hover:border-blue-400 focus:border-blue-400 font-code text-[16px] md:text-[0.9rem] pl-10"
+          type="text"
+          placeholder="Paste DeSo URL here"
+          value={query ? query : ''}
+          //onChange={(e) => handleSearch(e)}
+          onPaste={(e) => handlePaste(e)}
         />
       </div>
-      {/* <div class="ml-2">
-        <button type="submit" class="px-4 py-2 md:py-[8px] text-white rounded-lg bg-gradient-to-br from-red-400 to-pink-600 hover:scale-[0.98] active:scale-[0.95] border border-transparent dark:border-transparent shadow-lg flex items-center justify-center duration-100 cursor-pointer text-sm min-h-[36px] w-[140px] font-semibold" variant="primary">Get Tweet →</button>
-      </div> */}
     </div>
   );
 }

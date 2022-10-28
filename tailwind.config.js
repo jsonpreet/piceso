@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   darkMode: "class",
   content: [
     "./pages/**/*.{js,jsx,ts,tsx}",
@@ -7,5 +8,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("prettier-plugin-tailwindcss")],
+  plugins: [],
 };

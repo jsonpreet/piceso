@@ -8,6 +8,10 @@ export const useCardStore = create((set) => ({
   width: 800,
   radius: 16,
   opacity: 100,
+  scale: 100,
+  size: { width: 800, height: 700, name: 'Auto', ratio: 'auto' },
+  shadow: '0',
+  exportImage: true,
   font: new Set(["-apple-system, system-ui, BlinkMacSystemFont, Public Sans, Helvetica Neue, Segoe UI, Roboto, Arial", "sans-serif"]),
   setHeight(callback) {
     set(({ height }) => ({ height: getValueInRange(callback(height), MIN_ALLOWED_HEIGHT) }))
@@ -18,16 +22,19 @@ export const useCardStore = create((set) => ({
   setRadius(callback) {
     set(({ radius }) => ({ radius: getValueInRange(callback(radius), MIN_ALLOWED_RADIUS) }));
   },
-  
-  // setRadius: (params) => {
-  //   set((state) => ({
-  //     radius: params,
-  //   }));
-  // },
   setOpacity(callback) {
     set(({ opacity }) => ({ opacity: getValueInRange(callback(opacity), MIN_ALLOWED_OPACITY, MAX_ALLOWED_OPACITY) }));
   },
   setFont(callback) {
     set(({ font }) => ({ font: callback(font) }));
+  },
+  setSize(callback) {
+    set(({ size }) => ({ size: callback(size) }));
+  },
+  setScale(callback) {
+    set(({ scale }) => ({ scale: callback(scale) }));
+  },
+  setExport(params) {
+    set(( state ) => ({ exportImage: params }));
   },
 }));

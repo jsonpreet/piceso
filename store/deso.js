@@ -1,25 +1,31 @@
 import create from "zustand";
 
-export const useTweetStore = create((set) => ({
-  tweetInfo: {
+export const useDesoStore = create((set) => ({
+  postInfo: {
     profile_image_url: "",
     name: "",
     username: "",
     text: "",
-    retweet_count: 800,
-    reply_count: 4672,
-    like_count: 1729,
+    retweet_count: 0,
+    reply_count: 0,
+    like_count: 0,
     post: {},
     profile: {},
   },
   loading: true,
-  isMetricsVisible: false,
-  setTweetInfo(callback) {
-    set(({ tweetInfo }) => ({ tweetInfo: callback(tweetInfo) }));
+  isMetricsVisible: true,
+  isMediaVisible: true,
+  setPostInfo(callback) {
+    set(({ postInfo }) => ({ postInfo: callback(postInfo) }));
   },
   setIsMetricsVisible(callback) {
     set(({ isMetricsVisible }) => ({
       isMetricsVisible: callback(isMetricsVisible),
+    }));
+  },
+  setIsMediaVisible(callback) {
+    set(({ isMediaVisible }) => ({
+      isMediaVisible: callback(isMediaVisible),
     }));
   },
   setLoading: (params) => {

@@ -1,17 +1,17 @@
-import { Dispatch, MutableRefObject, SetStateAction } from "react";
-import ButtonGroup from "./ButtonGroup";
-import Info from "./Info";
-import Input from "./Input";
+import Image from "next/image";
 import Logo from "./Logo";
 
 
-export default function Header({ setIsPanelOpen, rootRef }) {
+export default function Header({ rootRef }) {
   return (
-    <header className="flex items-center justify-between gap-x-4 px-4 py-2">
-      <Logo />
-      
-      <ButtonGroup setIsPanelOpen={setIsPanelOpen} rootRef={rootRef} />
-    </header>
-
+    <div className='header-section flex flex-row items-start justify-between w-full lg:px-20 px-4 py-5'>
+      <div className='flex flex-row items-center'>
+        <a href='https://deso.com' className='flex flex-row items-center justify-center'>
+          <Image src="/logo-deso-white.svg" alt="Deso Logo" width={100} height={35} />
+        </a>
+        <h3 className='font-semibold ml-2 text-[#daedff]'>/</h3>
+        <h3 className='font-semibold ml-2 text-[#daedff]'>Shot</h3>
+      </div>
+    </div>
   );
 }
