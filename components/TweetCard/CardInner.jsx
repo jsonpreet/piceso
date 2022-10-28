@@ -15,6 +15,7 @@ export default function CardInner() {
   const { profile_image_url, name, username, text, post, profile } = tweetInfo;
   const selectedTemplate = useTemplateStore((state) => state.selectedTemplate);
   const opacity = useCardStore((state) => state.opacity);
+  const radius = useCardStore((state) => state.radius);
   const font = useCardStore((state) => state.font);
   const [nodes, setNodes] = useState({ '1': { 'Name': 'DeSo', 'URL': 'https://node.deso.org', 'Owner': 'diamondhands' } });
   const [exchange, setExchange] = useState();
@@ -85,9 +86,10 @@ export default function CardInner() {
     ); 
   }
   return (
-    <div className="rounded-xl p-10 md:px-10 md:py-8 backdrop-blur-xl bg-gradient-to-br dark:from-dark/60 dark:via-dark/80 dark:to-dark/80 w-full"
+    <div className="p-10 md:px-10 md:py-8 backdrop-blur-xl bg-gradient-to-br dark:from-dark/60 dark:via-dark/80 dark:to-dark/80 w-full"
       style={{
         backgroundColor: `rgba(255,255,255, ${opacity / 100})`,
+        borderRadius: radius
       }}
     >
       <div className={`flex gap-x-2 items-center`}>

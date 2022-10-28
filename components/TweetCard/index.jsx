@@ -1,6 +1,8 @@
 import { usePanStore } from "../../store/pan";
 import { useEffect } from "react";
 import CardResizable from "./CardResizable";
+import CardOuter from "./CardOuter";
+import ResizableTweet from "./CardResizable";
 
 export default function TweetCard({ rootRef }) {
   const isSpaceDown = usePanStore((state) => state.isSpaceDown);
@@ -40,22 +42,23 @@ export default function TweetCard({ rootRef }) {
   }
 
   return (
-    <div
-      onMouseDown={mouseDownHandler}
-      onMouseUp={mouseUpHandler}
-      onMouseMove={mouseMoveHandler}
-      style={{
-        transform: `translate(${moveBy.X}px, ${moveBy.Y}px)`,
-      }}
-      className={`${
-        isSpaceDown
-          ? isMouseDown
-            ? "cursor-grabbing select-none"
-            : "cursor-grab select-auto"
-          : ""
-      }`}
-    >
-      <CardResizable rootRef={rootRef} />
-    </div>
+    // <div
+    //   onMouseDown={mouseDownHandler}
+    //   onMouseUp={mouseUpHandler}
+    //   onMouseMove={mouseMoveHandler}
+    //   style={{
+    //     transform: `translate(${moveBy.X}px, ${moveBy.Y}px)`,
+    //   }}
+    //   className={`${
+    //     isSpaceDown
+    //       ? isMouseDown
+    //         ? "cursor-grabbing select-none"
+    //         : "cursor-grab select-auto"
+    //       : ""
+    //   }`}
+    // >
+    //   <CardResizable rootRef={rootRef} />
+    // </div>
+    <ResizableTweet rootRef={rootRef} />
   );
 }

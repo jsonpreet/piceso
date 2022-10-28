@@ -1,0 +1,36 @@
+.custom-slider {
+
+  .rs-slider-bar {
+    height: 6px;
+    background-color: #d1d5db;
+    border-radius: 6px;
+    cursor: pointer;
+    .rs-slider-progress-bar {
+      height: 6px;
+      border-radius: 6px;
+      background-color: #1d4ed8;
+    }
+  }
+
+  .track {
+      height: 6px;
+      border-radius: 6px;
+      background: #1d4ed8;
+  }
+
+  .track-1 {
+      background: #d1d5db;
+  }
+
+  .thumb {
+      top:-5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      text-align: center;
+      background-color: #1d4ed8;
+      cursor: pointer;
+      box-sizing: border-box;
+  }
+
+}

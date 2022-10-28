@@ -73,33 +73,19 @@ export default function Input() {
   }
 
   return (
-    <div className="relative ml-auto flex w-1/2">
-      <input
-        className="w-full rounded-full bg-slate-200 px-6 py-2.5 pr-16 text-sm ring-blue-400 focus:outline-none focus:ring-2 dark:bg-[#3c3c3c] dark:text-white dark:placeholder-white"
+    <div className="flex items-center justify-center space-x-4 mx-auto md:max-w-[800px] w-full px-4 py-2 bg-gray-50 border border-gray-200 backdrop-blur-lg rounded-xl mb-3 dark:bg-gray-900 dark:border-gray-800">
+      <div className="w-full relative">
+        <input
+        className="duration-200 shadow dark:bg-gray-900 dark:text-white dark:border-gray-600 border border-gray-200 px-3 py-[6px] rounded-lg my-1 outline-none w-full dark:placeholder-gray-500 dark:hover:border-pink-700 dark:focus:border-pink-700 hover:border-pink-400 focus:border-pink-400 font-code text-[16px] md:text-[0.9rem] dark:!bg-gray-800/50"
         type="text"
-        placeholder="Paste tweet link here"
+        placeholder="Paste DeSo URL here"
         value={query ? query : ''}
         onChange={(e) => handleSearch(e)}
-      />
-      <button
-        type="submit"
-        className="group absolute inset-y-0 right-0 flex w-14 items-center justify-center rounded-r-full bg-slate-300 dark:bg-[#5c5c5c] dark:hover:bg-[#6c6c6c]"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-6 w-6 stroke-slate-700 group-hover:stroke-slate-900 dark:stroke-gray-300 dark:group-hover:stroke-white"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-          />
-        </svg>
-      </button>
+        />
+      </div>
+      {/* <div class="ml-2">
+        <button type="submit" class="px-4 py-2 md:py-[8px] text-white rounded-lg bg-gradient-to-br from-red-400 to-pink-600 hover:scale-[0.98] active:scale-[0.95] border border-transparent dark:border-transparent shadow-lg flex items-center justify-center duration-100 cursor-pointer text-sm min-h-[36px] w-[140px] font-semibold" variant="primary">Get Tweet →</button>
+      </div> */}
     </div>
   );
 }

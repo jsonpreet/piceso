@@ -12,7 +12,6 @@ export default function CardOuter({ rootRef }) {
       ref={rootRef}
       style={{
         background: `linear-gradient(to bottom right, ${gradient.from}, ${gradient.to})`,
-        borderRadius: `${radius}px`,
       }}
       className="flex h-full items-center justify-center overflow-hidden py-16 px-20 leading-normal shadow-md"
     >

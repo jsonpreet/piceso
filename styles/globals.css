@@ -51,3 +51,6 @@
     @apply !p-5;
   }
 }
+.font-code {
+	font-family: JetBrains Mono,monospace;
+}

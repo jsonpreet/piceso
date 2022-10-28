@@ -18,6 +18,12 @@ export const useCardStore = create((set) => ({
   setRadius(callback) {
     set(({ radius }) => ({ radius: getValueInRange(callback(radius), MIN_ALLOWED_RADIUS) }));
   },
+  
+  // setRadius: (params) => {
+  //   set((state) => ({
+  //     radius: params,
+  //   }));
+  // },
   setOpacity(callback) {
     set(({ opacity }) => ({ opacity: getValueInRange(callback(opacity), MIN_ALLOWED_OPACITY, MAX_ALLOWED_OPACITY) }));
   },

@@ -65,15 +65,19 @@ export default function ResizableTweet({ rootRef }) {
   }, [heightBuffer]);
 
   return (
-    <Resizable
-      size={{ width: cardWidth, height: cardHeight }}
-      onResize={resizeHandler}
-      onResizeStop={resizeStopHandler}
-      className="lg:-translate-x-24"
-      minHeight={MIN_ALLOWED_HEIGHT}
-      minWidth={MIN_ALLOWED_WIDTH}
-    >
+    // <Resizable
+    //   size={{ width: cardWidth, height: cardHeight }}
+    //   onResize={resizeHandler}
+    //   onResizeStop={resizeStopHandler}
+    //   className="lg:-translate-x-24"
+    //   minHeight={MIN_ALLOWED_HEIGHT}
+    //   minWidth={MIN_ALLOWED_WIDTH}
+    // >
+    //   <CardOuter rootRef={rootRef} />
+    // </Resizable>
+
+    <div style={{ width: cardWidth, height: cardHeight, minHeight: MIN_ALLOWED_HEIGHT, minWidth: MIN_ALLOWED_WIDTH }}>
       <CardOuter rootRef={rootRef} />
-    </Resizable>
+    </div>
   );
 }

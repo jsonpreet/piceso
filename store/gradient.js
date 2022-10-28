@@ -1,7 +1,7 @@
 import create from "zustand";
 
 export const useGradientStore = create((set) => ({
-  selectedGradient: { id: 1, from: "#F12711", to: "#F5AF19" },
+  selectedGradient: { id: 1, from: "#00E1F4", to: "#0064F4" },
   gradients: [
     {
       id: 1,
