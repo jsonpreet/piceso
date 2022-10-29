@@ -42,7 +42,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex mt-6 relative z-20 flex-row items-center text-white justify-center w-full">
-          <span>Made with</span> <BiHeart size={20} className='text-[#fe3537] h-[26px] mx-1'/> <span>by <a className="hover:underline" href="https://node.deso.org" rel='noopener noreferrer nofollow' target='_blank'>MrPreet</a></span>
+          <span>Made with</span> <BiHeart size={20} className='text-[#fe3537] h-[26px] mx-1'/> <span>by <a className="hover:underline" href="https://node.deso.org/u/MrPreet" rel='noopener noreferrer nofollow' target='_blank'>MrPreet</a></span>
         </div>
       </div>
       <ToastContainer limit={3} />
