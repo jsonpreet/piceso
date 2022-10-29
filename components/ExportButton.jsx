@@ -12,8 +12,8 @@ import { toastOptions } from "../store/constants";
 
 export default function ExportButton({ rootRef, className }) {
   const setExport = useCardStore((state) => state.setExport);
-  const postInfo = useDesoStore
-  const { post } = postInfo; ((state) => state.postInfo);
+  const postInfo = useDesoStore((state) => state.postInfo);
+  const { post } = postInfo;
   const fileName = post?.PostHashHex || 'deso';
 
   const saveImage = useCallback(() => {
