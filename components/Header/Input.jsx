@@ -5,6 +5,7 @@ import axios from "axios";
 import { useDesoStore } from "../../store/deso";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../store/constants";
+import * as ga from '../../lib/ga'
 
 export default function Input() {
   const router = useRouter()
@@ -28,6 +29,9 @@ export default function Input() {
       setPostUrl(url)
       setQuery()
     }
+    ga.event({
+      action: 'User landed on home page',
+    })
   }, []);
 
   useEffect(() => {
@@ -35,6 +39,9 @@ export default function Input() {
       setPrefix(postUrl.split('/')[3])
       setPostID(postUrl.split('/')[4])
       fetchPost(removeQueryParam(postUrl.split('/')[4]));
+      ga.event({
+        action: 'Fetching post',
+      })
     }
   }, [postUrl]);
   
@@ -58,12 +65,25 @@ export default function Input() {
         post: post,
         profile: post?.ProfileEntryResponse,
       }));
+      
+      ga.event({
+        action: 'Post fetched',
+        params : {
+          post_id: post.PostHashHex,
+        }
+      })
       setPost(data.PostFound)
       setLoading(false)
       toast.update(toastId, { render: "All is good.", type: "success", isLoading: false, autoClose: 2000, hideProgressBar: true  });
     }).catch((error) => {
       console.log(error);
       setTimeout(() => loadDefault(), 2000);
+      ga.event({
+        action: 'Post Fetched Failed',
+        params : {
+          post_id: id,
+        }
+      })
       
       toast.update(toastId, { render: "Oops! Enter valid url.", type: "error", isLoading: false, autoClose: 3000, hideProgressBar: true  });
     });
@@ -100,9 +120,23 @@ export default function Input() {
     const value = e.clipboardData.getData('text/plain')
     if (value.length > 0) {
       if (isValidURL(value)) {
+        
+        ga.event({
+          action: 'URL pasted',
+          params : {
+            post_url: value,
+          }
+        })
         setPostUrl(value)
         setQuery(value);
       } else {
+        
+        ga.event({
+          action: 'Invalid URL pasted',
+          params : {
+            post_url: value,
+          }
+        })
         toast.error("Please enter valid url...", toastOptions)
       }
     } else {
