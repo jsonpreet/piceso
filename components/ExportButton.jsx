@@ -12,9 +12,9 @@ import { toastOptions } from "../store/constants";
 
 export default function ExportButton({ rootRef, className }) {
   const setExport = useCardStore((state) => state.setExport);
-  const postInfo = useDesoStore((state) => state.postInfo);
-  const { post } = postInfo;
-  const fileName = post?.PostHashHex || 'deso';
+  const d = new Date();
+  let time = d.getTime();
+  const fileName = 'Shot-WithDeso.com__' + time;
 
   const saveImage = useCallback(() => {
     const toastId = toast.loading("Exporting image to PNG...", toastOptions)
