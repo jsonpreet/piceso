@@ -14,7 +14,7 @@ export default function ExportButton({ rootRef, className }) {
   const setExport = useCardStore((state) => state.setExport);
   const postInfo = useDesoStore
   const { post } = postInfo; ((state) => state.postInfo);
-  const fileName = post?.PostHasHex || 'deso';
+  const fileName = post?.PostHashHex || 'deso';
 
   const saveImage = useCallback(() => {
     const toastId = toast.loading("Exporting image to PNG...", toastOptions)
