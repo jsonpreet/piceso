@@ -15,8 +15,6 @@ export default function Home() {
     <>
       <Head>
         <title>Convert DeSo Posts to Image, Tweet, Instagram Post, Story and more | Shot WithDeso</title>
-        <meta name="description" content="Create beautiful and customizable DeSo Posts images for Instagram Post, Story, Tweet and more." />
-        <meta name="title" content="Shot WithDeso" />
       </Head>
       <div className="relative h-screen" style={{ backgroundImage: 'linear-gradient(347deg, #031128 0% 40%, #0000ff33 90% 40%)'}}>
         <div className="relative z-10 flex flex-col overflow-hidden w-full items-start justify-center p-4">
