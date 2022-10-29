@@ -6,7 +6,7 @@ import DeSoCard from "../components/DeSoCard";
 import { useDarkStore } from "../store/dark";
 import Input from "../components/Header/Input";
 import { ToastContainer } from "react-toastify";
-import party from "party-js";
+import { BiHeart } from "react-icons/bi";
 
 export default function Home() {
   const rootRef = useRef();
@@ -16,7 +16,7 @@ export default function Home() {
       <Head>
         <title>Convert DeSo Posts to Image, Tweet, Instagram Post, Story and more | Shot WithDeso</title>
       </Head>
-      <div className="relative h-screen" style={{ backgroundImage: 'linear-gradient(347deg, #031128 0% 40%, #0000ff33 90% 40%)'}}>
+      <div className="relative" style={{ backgroundImage: 'linear-gradient(347deg, #031128 0% 40%, #0000ff33 90% 40%)'}}>
         <div className="relative z-10 flex flex-col overflow-hidden w-full items-start justify-center p-4">
           <Header rootRef={rootRef} />
           <div className="min-h-screen object-cover opacity-[0.1] fixed inset-0">
@@ -40,6 +40,9 @@ export default function Home() {
               <SidePanel rootRef={rootRef} />
             </div>
           </div>
+        </div>
+        <div className="flex mt-6 relative z-20 flex-row items-center text-white justify-center w-full">
+          <span>Made with</span> <BiHeart size={20} className='text-[#fe3537] h-[26px] mx-1'/> <span>by <a className="hover:underline" href="https://node.deso.org" rel='noopener noreferrer nofollow' target='_blank'>MrPreet</a></span>
         </div>
       </div>
       <ToastContainer limit={3} />

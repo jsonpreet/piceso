@@ -25,7 +25,6 @@ export default function CardInner() {
   const exportImage = useCardStore((state) => state.exportImage);
   const [nodes, setNodes] = useState({ '1': { 'Name': 'DeSo', 'URL': 'https://node.deso.org', 'Owner': 'diamondhands' } });
   const [exchange, setExchange] = useState();
-  // Firefox fix
   const [imageData, setImageData] = useState("");
 
   useEffect(() => {
