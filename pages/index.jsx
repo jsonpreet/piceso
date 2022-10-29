@@ -6,11 +6,22 @@ import DeSoCard from "../components/DeSoCard";
 import { useDarkStore } from "../store/dark";
 import Input from "../components/Header/Input";
 import { ToastContainer } from "react-toastify";
+import {useWindowSize} from 'react-use';
+import ReactConfetti from "react-confetti";
+import party from "party-js";
 
 export default function Home() {
   const rootRef = useRef();
   const isDark = useDarkStore((state) => state.isDark);
-
+  const { width, height } = useWindowSize();
+  
+  // if (outerRef?.current && isCompleted) {
+  //   party.confetti(outerRef.current, {
+  //     // Specify further (optional) configuration here.
+  //     count: party.variation.range(0, 100),
+  //     size: party.variation.range(0.6, 1.4),
+  //   }); 
+  // }
   return (
     <>
       <Head>

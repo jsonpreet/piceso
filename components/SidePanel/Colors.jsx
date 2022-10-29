@@ -23,7 +23,7 @@ export default function Colors() {
                 <span className="font-mono capitalize">Gradient</span>
               </div>
               <div className="flex ml-auto items-center">
-                <div className="p-[1px] bg-white border border-gray-300 rounded-[10px] cursor-pointer hover:border-gray-600 w-[36px] h-[36px] mr-3">
+                <div className="p-[2px] bg-white border border-gray-300 rounded-[10px] cursor-pointer hover:border-gray-600 w-[36px] h-[36px] mr-3">
                   <div className="w-full h-full rounded-lg shadow-[0_0_2px_rgba(0,0,0,0.2)]" style={{ background: `linear-gradient(to bottom right, ${selectedGradient.from}, ${selectedGradient.to})`,}}></div>
                 </div>
                 <ChevronRightIcon
@@ -43,20 +43,20 @@ export default function Colors() {
             >
               <Popover.Panel className="absolute left-1/2 z-10 w-screen max-w-[95vw] md:max-w-[500px] -translate-x-1/2 transform px-4 sm:px-0">
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-[#010812]">
-                  <div className="shadow-[0_2px_20px_rgba(0,0,0,0.3)] bg-[#0c0c44c2] backdrop-blur-xl rounded-xl w-full relative z-[10]">
+                  <div className="shadow-[0_2px_20px_rgba(0,0,0,0.3)] bg-[#13518f] backdrop-blur-xl rounded-xl w-full relative z-[10]" style={{background: `linear-gradient(to bottom right, #a1c4fd, #c2e9fb)`}}>
                     <div className="bg-[#13518f] z-20 px-2 flex py-1 text-sm backdrop-blur-md text-white border-[#010812] font-semibold border-b">
                       <h3 className="flex items-center">Gradient</h3>
                     </div>
                     <div className="px-4 py-4">
-                      <div className="grid flex-wrap grid-cols-8 gap-[1px] relative overflow-hidden rounded-lg shadow">
+                      <div className="grid flex-wrap grid-cols-8 gap-[0px] relative overflow-hidden rounded-lg shadow-lg border border-gray-500">
                         {gradients.map((gradient) => (
                           <div
                             key={gradient.id}
                             style={{
                               background: `linear-gradient(to bottom right, ${gradient.from}, ${gradient.to})`,
                             }}
-                            className={`cursor-pointer group flex items-center justify-center shadow shadow-gray-500/20 w-full aspect-square`}
-                              onClick={() => setSelectedGradient(() => gradient)}
+                            className={`cursor-pointer group flex items-center justify-center shadow shadow-white/20 w-full aspect-square`}
+                            onClick={() => setSelectedGradient(() => gradient)}
                           >
                             <div class={`w-2 h-2 rounded-full shadow-black/50 bg-gradient-to-br from-white to-gray-600 duration-200 mix-blend-luminosity ${JSON.stringify(gradient) === JSON.stringify(selectedGradient) ? `opacity-100` : `opacity-0`} translate-y-0 scale-100`}></div>
                           </div>

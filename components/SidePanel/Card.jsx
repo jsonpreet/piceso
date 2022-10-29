@@ -38,13 +38,13 @@ export default function Size() {
             >
               <Popover.Panel className="absolute left-1/2 z-10 w-screen max-w-[95vw] md:max-w-[500px] -translate-x-1/2 transform px-4 sm:px-0">
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-[#010812]">
-                  <div className="shadow-[0_2px_20px_rgba(0,0,0,0.3)] bg-[#0c0c44c2] backdrop-blur-xl rounded-xl w-full relative z-[10]">
+                  <div className="shadow-[0_2px_20px_rgba(0,0,0,0.3)] bg-[#0c0c44c2] backdrop-blur-xl rounded-xl w-full relative z-[10]" style={{background: `linear-gradient(to bottom right, #a1c4fd, #c2e9fb)`}}>
                     <div className="bg-[#13518f] z-20 px-2 flex py-1 text-sm backdrop-blur-md text-white border-[#010812] font-semibold border-b">
                       <h3 className="flex items-center"><BsTextareaResize size={18} className='mt-[2px] mr-2'/>Select Canvas size</h3>
                     </div>
                     <div className="grid grid-cols-3 gap-3 max-h-[300px] overscroll-none h-full w-full px-3 py-4">
                       
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Auto' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Auto' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Auto', ratio: 'auto'}))}
                       >
                         <div>
@@ -52,7 +52,7 @@ export default function Size() {
                         </div>
                       </button>
 
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Tweet' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Tweet' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Tweet', ratio: '1 / 0.875'}))}
                         >
                         <div className="mr-2">
@@ -62,7 +62,7 @@ export default function Size() {
                           Tweet
                         </div>
                       </button>
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Insta Post' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Insta Post' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Insta Post', ratio: '4 / 5'}))}
                       >
                         <div className="mr-2">
@@ -72,7 +72,7 @@ export default function Size() {
                           Insta Post
                         </div>
                       </button>
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Insta Story' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Insta Story' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Insta Story', ratio: '9 / 16'}))}
                       >
                         <div className="mr-2">
@@ -83,7 +83,7 @@ export default function Size() {
                         </div>
                       </button>
                       
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Product Hunt' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Product Hunt' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Product Hunt', ratio: '1.67 / 1'}))}
                       >
                         <div className="mr-2">
@@ -94,7 +94,7 @@ export default function Size() {
                         </div>
                       </button>
                       
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Open Graph' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Open Graph' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Open Graph', ratio: '1.90476 / 1'}))}
                       >
                         <div>
@@ -102,7 +102,7 @@ export default function Size() {
                         </div>
                       </button>
                       
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Square (1:1)' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Square (1:1)' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Square (1:1)', ratio: '1 / 1'}))}
                       >
                         <div>
@@ -110,7 +110,7 @@ export default function Size() {
                         </div>
                       </button>
                       
-                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:border-[#ffda59] hover:bg-[#fff7d9] bg-white border-gray-300 ${size.name === 'Wide (16:9)' ? `border-[#ffda59] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
+                      <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Wide (16:9)' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Wide (16:9)', ratio: '16 / 9'}))}
                       >
                         <div>

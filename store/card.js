@@ -11,7 +11,7 @@ export const useCardStore = create((set) => ({
   scale: 100,
   size: { width: 800, height: 700, name: 'Auto', ratio: 'auto' },
   shadow: '0',
-  exportImage: true,
+  exportImage: false,
   font: new Set(["-apple-system, system-ui, BlinkMacSystemFont, Public Sans, Helvetica Neue, Segoe UI, Roboto, Arial", "sans-serif"]),
   setHeight(callback) {
     set(({ height }) => ({ height: getValueInRange(callback(height), MIN_ALLOWED_HEIGHT) }))
