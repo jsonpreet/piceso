@@ -1,11 +1,17 @@
-export const MIN_ALLOWED_WIDTH = 500;
-export const MIN_ALLOWED_HEIGHT = 300;
+export const MIN_ALLOWED_WIDTH = 60;
+export const MAX_ALLOWED_WIDTH = 100;
+
+export const MIN_ALLOWED_FONT_SIZE = 14;
+export const MAX_ALLOWED_FONT_SIZE = 30;
 
 export const MIN_ALLOWED_OPACITY = 0;
 export const MAX_ALLOWED_OPACITY = 100;
 
 export const MIN_ALLOWED_RADIUS = 0;
 export const MAX_ALLOWED_RADIUS = 24;
+
+export const MIN_ALLOWED_CANVAS_RADIUS = 0;
+export const MAX_ALLOWED_CANVAS_RADIUS = 24;
 
 export const MIN_ALLOWED_SCALE = 30;
 export const MAX_ALLOWED_SCALE = 150;

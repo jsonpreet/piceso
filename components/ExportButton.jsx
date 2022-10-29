@@ -34,8 +34,7 @@ export default function ExportButton({ rootRef, className }) {
       toast.update(toastId, { render: "Image exported!", type: "success", isLoading: false, autoClose: 2000, hideProgressBar: true  });
     })
     .catch((err) => {
-      console.log(err)
-      reject(err)
+      console.log(err);
     })
     , 1500);
   }, [rootRef])

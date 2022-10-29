@@ -16,13 +16,15 @@ export default function Input() {
 
   const { setPostInfo, setLoading } = useDesoStore((state) => state);
 
+  const defaultPost = 'https://diamondapp.com/posts/99cd89fc11d8432416d83ea73b72944a540dd27a996c8ac9c4a9c6379b136891';
+
   useEffect(() => {
     if (router.query.url !== undefined && router.query.url !== '') {
       const url = removeQueryParam(router.query.url)
       setPostUrl(url)
       setQuery(url)
     } else {
-      const url = removeQueryParam('https://diamondapp.com/posts/99cd89fc11d8432416d83ea73b72944a540dd27a996c8ac9c4a9c6379b136891?feedTab=Hot')
+      const url = removeQueryParam(defaultPost)
       setPostUrl(url)
       setQuery()
     }
@@ -42,8 +44,8 @@ export default function Input() {
     const request = {
         "PostHashHex": `${id}`,
     }
-    const { data } =  await axios.post(`https://node.deso.org/api/v0/get-single-post`,request)
-    if (data && data.PostFound) {
+    await axios.post(`https://node.deso.org/api/v0/get-single-post`, request).then((res) => {
+      const data = res.data;
       const post = data.PostFound
       setPostInfo(() => ({
         profile_image_url: post?.ProfileEntryResponse?.ExtraData?.LargeProfilePicURL || `https://node.deso.org/api/v0/get-single-profile-picture/${post?.ProfileEntryResponse?.PublicKeyBase58Check}`,
@@ -59,7 +61,18 @@ export default function Input() {
       setPost(data.PostFound)
       setLoading(false)
       toast.update(toastId, { render: "All is good.", type: "success", isLoading: false, autoClose: 2000, hideProgressBar: true  });
-    }
+    }).catch((error) => {
+      console.log(error);
+      setTimeout(() => loadDefault(), 2000);
+      
+      toast.update(toastId, { render: "Oops! Enter valid url.", type: "error", isLoading: false, autoClose: 3000, hideProgressBar: true  });
+    });
+  }
+
+  async function loadDefault() {
+    const url = defaultPost
+    setPostUrl(url)
+    setQuery()
   }
 
 
@@ -109,7 +122,8 @@ export default function Input() {
           className="duration-200 shadow dark:bg-gray-900 dark:text-white dark:border-gray-600 border border-gray-200 px-3 py-[6px] rounded-lg my-1 outline-none w-full dark:placeholder-gray-500 dark:hover:border-[#010812] leading-6 dark:focus:border-[#010812] hover:border-blue-400 focus:border-blue-400 font-code text-[16px] md:text-[0.9rem] pl-10"
           type="text"
           placeholder="Paste DeSo URL here"
-          // value={query ? query : ''}
+          readOnly={query !== '' ? true : false}
+          defaultValue={query ? query : ''}
           //onChange={(e) => handleSearch(e)}
           onPaste={(e) => handlePaste(e)}
         />

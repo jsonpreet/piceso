@@ -5,10 +5,9 @@ import { BsTwitter, BsTextareaResize, BsInstagram } from "react-icons/bs";
 import { FaProductHunt } from "react-icons/fa";
 import { useCardStore } from '../../store/card';
 
-export default function Size() {
+export default function CanvasSize() {
   const size = useCardStore((state) => state.size);
   const setSize = useCardStore((state) => state.setSize);
-  console.log(size);
   return (
     <div className="relative w-full">
       <Popover className="relative">
@@ -38,7 +37,7 @@ export default function Size() {
             >
               <Popover.Panel className="absolute left-1/2 z-10 w-screen max-w-[95vw] md:max-w-[500px] -translate-x-1/2 transform px-4 sm:px-0">
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-[#010812]">
-                  <div className="shadow-[0_2px_20px_rgba(0,0,0,0.3)] bg-[#0c0c44c2] backdrop-blur-xl rounded-xl w-full relative z-[10]" style={{background: `linear-gradient(to bottom right, #a1c4fd, #c2e9fb)`}}>
+                  <div className="shadow-[0_2px_20px_rgba(0,0,0,0.3)] bg-white rounded-xl w-full relative z-[10]">
                     <div className="bg-[#13518f] z-20 px-2 flex py-1 text-sm backdrop-blur-md text-white border-[#010812] font-semibold border-b">
                       <h3 className="flex items-center"><BsTextareaResize size={18} className='mt-[2px] mr-2'/>Select Canvas size</h3>
                     </div>

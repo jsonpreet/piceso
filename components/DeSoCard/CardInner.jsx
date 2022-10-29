@@ -110,7 +110,7 @@ export default function CardInner() {
     >
       <div className="p-10 md:px-10 md:pt-8 md:pb-3  w-full">
         <div className='flex items-center'>
-          <div className="object-cover w-10 h-10 md:w-[52px] md:h-[52px] rounded-full">
+          <div className="object-cover w-10 h-10 md:w-[56px] md:h-[56px] rounded-full">
             <img
               className="border-0 rounded-full"
               src={imageData || profile_image_url}
@@ -140,9 +140,12 @@ export default function CardInner() {
         }
         <div>
           <div className='flex flex-row justify-between items-center mt-4'>
-            <span className="text-gray-400 text-[13px]">{dateFormat(post.TimestampNanos)}</span>
+            <div className="flex flex-row items-center">
+              {post.IsNFT && <span className='text-white bg-blue-600 rounded py-1 px-2 mr-2 hover:underline text-[13px]'>NFT</span>}
+              <span className="text-gray-400 text-[13px]">{dateFormat(post.TimestampNanos)}</span>
+            </div>
+            
             {exportImage && <span className="text-gray-400 text-[13px] ml-2">Made with shot.withdeso.com</span>}
-            {post.IsNFT && <span className='text-white bg-blue-600 rounded py-1 px-2 hover:underline text-[13px]'>NFT</span>}
           </div>
         </div>
         {isMetricsVisible &&

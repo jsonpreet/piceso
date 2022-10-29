@@ -6,22 +6,11 @@ import DeSoCard from "../components/DeSoCard";
 import { useDarkStore } from "../store/dark";
 import Input from "../components/Header/Input";
 import { ToastContainer } from "react-toastify";
-import {useWindowSize} from 'react-use';
-import ReactConfetti from "react-confetti";
 import party from "party-js";
 
 export default function Home() {
   const rootRef = useRef();
   const isDark = useDarkStore((state) => state.isDark);
-  const { width, height } = useWindowSize();
-  
-  // if (outerRef?.current && isCompleted) {
-  //   party.confetti(outerRef.current, {
-  //     // Specify further (optional) configuration here.
-  //     count: party.variation.range(0, 100),
-  //     size: party.variation.range(0.6, 1.4),
-  //   }); 
-  // }
   return (
     <>
       <Head>
@@ -29,7 +18,7 @@ export default function Home() {
         <meta name="title" content="Piceso" />
       </Head>
       <div className="relative h-screen" style={{ backgroundImage: 'linear-gradient(347deg, #031128 0% 40%, #0000ff33 90% 40%)'}}>
-        <div className="relative z-10 flex flex-col overflow-hidden w-full items-start justify-center">
+        <div className="relative z-10 flex flex-col overflow-hidden w-full items-start justify-center p-4">
           <Header rootRef={rootRef} />
           <div className="min-h-screen object-cover opacity-[0.1] fixed inset-0">
             <svg width="100%" height="100%">

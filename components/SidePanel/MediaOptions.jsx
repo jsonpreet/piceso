@@ -1,7 +1,7 @@
 import { Switch, Listbox, Transition } from "@headlessui/react";
 import { useDesoStore } from "../../store/deso";
 
-export default function Options() {
+export default function MediaOptions() {
   const { setIsMetricsVisible, isMetricsVisible, isMediaVisible, setIsMediaVisible } = useDesoStore((state) => state);
 
   return (

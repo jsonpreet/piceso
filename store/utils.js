@@ -64,16 +64,6 @@ function padTo2Digits(num) {
 export const dateFormat = (p_timeStampNanoSeconds) => {
     const milliseconds = p_timeStampNanoSeconds / 1000000;
     const date = new Date(milliseconds);
-    //return new Date(milliseconds).toLocaleString('en-US');
-    // const formattedDate = new Date(milliseconds).toLocaleString('en-US', {
-    //     year: 'numeric',
-    //     month: 'short',
-    //     day: 'numeric',
-    //     hour: 'numeric',
-    //     minute: 'numeric',
-    //     second: 'numeric',
-    //     hour12: true
-    // });
     const formattedDate = date.toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
