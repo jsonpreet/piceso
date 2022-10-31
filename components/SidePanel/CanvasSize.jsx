@@ -54,30 +54,30 @@ export default function CanvasSize() {
                       <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Tweet' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Tweet', ratio: '1 / 0.875'}))}
                         >
-                        <div className="mr-2">
+                        <div className="mr-2 md:inline-flex hidden">
                           <BsTwitter className="text-[#1da1f2]" size={16} aria-hidden="true" />
                         </div>
-                        <div>
+                        <div className='md:text-normal text-xs'>
                           Tweet
                         </div>
                       </button>
                       <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Insta Post' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Insta Post', ratio: '4 / 5'}))}
                       >
-                        <div className="mr-2">
+                        <div className="mr-2 md:inline-flex hidden">
                           <BsInstagram className="text-[#e1306c]" size={16} aria-hidden="true" />
                         </div>
-                        <div>
+                        <div className='md:text-normal text-xs'>
                           Insta Post
                         </div>
                       </button>
                       <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Insta Story' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Insta Story', ratio: '9 / 16'}))}
                       >
-                        <div className="mr-2">
+                        <div className="mr-2 md:inline-flex hidden">
                           <BsInstagram className="text-[#e1306c]" size={16} aria-hidden="true" />
                         </div>
-                        <div>
+                        <div className='md:text-normal text-xs'>
                           Insta Story
                         </div>
                       </button>
@@ -85,10 +85,10 @@ export default function CanvasSize() {
                       <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Product Hunt' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Product Hunt', ratio: '1.67 / 1'}))}
                       >
-                        <div className="mr-2">
+                        <div className="mr-2 md:inline-flex hidden">
                           <FaProductHunt className="text-[#da552f]" size={16} aria-hidden="true" />
                         </div>
-                        <div>
+                        <div className='md:text-normal text-xs'>
                           Product Hunt
                         </div>
                       </button>
@@ -96,7 +96,7 @@ export default function CanvasSize() {
                       <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Open Graph' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Open Graph', ratio: '1.90476 / 1'}))}
                       >
-                        <div>
+                        <div className='md:text-normal text-xs'>
                           Open Graph
                         </div>
                       </button>
@@ -104,7 +104,7 @@ export default function CanvasSize() {
                       <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Square (1:1)' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Square (1:1)', ratio: '1 / 1'}))}
                       >
-                        <div>
+                        <div className='md:text-normal text-xs'>
                           Square (1:1)
                         </div>
                       </button>
@@ -112,7 +112,7 @@ export default function CanvasSize() {
                       <button className={`duration-200 snap-center whitespace-nowrap cursor-pointer flex-none px-2 py-2 text-sm text-center border rounded-xl flex items-center justify-center relative hover:text-[#6d4800] hover:border-[#6d4800] hover:bg-[#fff7d9] bg-white border-gray-400 ${size.name === 'Wide (16:9)' ? `border-[#6d4800] bg-[#ffcf26] text-[#6d4800]` : ' text-gray-500'}`}
                         onClick={() => setSize(() => ({ name: 'Wide (16:9)', ratio: '16 / 9'}))}
                       >
-                        <div>
+                        <div className='md:text-normal text-xs'>
                           Wide (16:9)
                         </div>
                       </button>

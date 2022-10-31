@@ -160,7 +160,7 @@ export default function CardInner() {
           </div>
         </div>
         {isMetricsVisible &&
-          <div className='flex flex-row border-t border-gray-100 mt-2 justify-between items-center'>
+          <div className='flex flex-row border-t border-gray-100 mt-2 justify-between items-center flex-wrap'>
             <div className='flex items-center mr-5 h-[40px]'>
               <BiComment size={22} className='text-[#0059f7] h-[24px] mr-1' />
               <span className='mr-1 relative font-normal text-[18px]'>{nFormatter(post.CommentCount)}</span>
