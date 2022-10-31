@@ -25,7 +25,8 @@ export default function CardInner() {
   const exportImage = useCardStore((state) => state.exportImage);
   const [nodes, setNodes] = useState({ '1': { 'Name': 'DeSo', 'URL': 'https://node.deso.org', 'Owner': 'diamondhands' } });
   const [exchange, setExchange] = useState();
-  const [imageData, setImageData] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const [postImage, setPostImage] = useState("");
 
   useEffect(() => {
     getExchangeRate()
@@ -46,8 +47,19 @@ export default function CardInner() {
     })
     .then((res) => res.json())
     .then((data) => {
-      setImageData(data.imageData);
+      setProfileImage(data.imageData);
     });
+
+    if (isMediaVisible && post.ImageURLs && post.ImageURLs.length > 0) {
+      fetch("/api/get-image", {
+        method: "post",
+        body: JSON.stringify({ imageUrl: post.ImageURLs[0]}),
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        setPostImage(data.imageData);
+      });
+    }
   }, [postInfo]);
 
   const getExchangeRate = async () => {
@@ -112,7 +124,7 @@ export default function CardInner() {
           <div className="object-cover w-10 h-10 md:w-[56px] md:h-[56px] rounded-full">
             <img
               className="border-0 rounded-full"
-              src={imageData || profile_image_url}
+              src={profileImage || profile_image_url}
               alt={`${name}'s pic`}
             />
           </div>
@@ -133,7 +145,7 @@ export default function CardInner() {
         {isMediaVisible && post.ImageURLs && post.ImageURLs.length > 0 &&
           <div className='grid gap-[2px] my-3 rounded-xl overflow-hidden shadow'>
             <div className='w-auto overflow-hidden shadow flex items-center justify-center max-h-[300px]'>
-              <img className='h-full object-cover w-full' alt={post.PostHashHex} src={post.ImageURLs[0]}  />
+              <img className='h-full object-cover w-full' alt={post.PostHashHex} src={postImage || post.ImageURLs[0]}  />
             </div>
           </div>
         }
