@@ -156,7 +156,7 @@ export default function Input() {
           className="duration-200 shadow dark:bg-gray-900 dark:text-white dark:border-gray-600 border border-gray-200 px-3 py-[6px] rounded-lg my-1 outline-none w-full dark:placeholder-gray-500 dark:hover:border-[#010812] leading-6 dark:focus:border-[#010812] hover:border-blue-400 focus:border-blue-400 font-code text-[16px] md:text-[0.9rem] pl-10"
           type="text"
           placeholder="Paste DeSo URL here"
-          readOnly={query !== '' ? true : false}
+          //readOnly={query !== '' ? true : false}
           defaultValue={query ? query : ''}
           //onChange={(e) => handleSearch(e)}
           onPaste={(e) => handlePaste(e)}
