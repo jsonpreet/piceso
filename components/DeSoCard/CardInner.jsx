@@ -9,6 +9,7 @@ import { calculateDurationUntilNow, dateFormat, nFormatter } from "../../store/u
 import { BiComment, BiRefresh, BiHeart } from "react-icons/bi";
 import { SlDiamond } from "react-icons/sl";
 import { BsLink } from "react-icons/bs";
+import { MdVerified } from "react-icons/md";
 import { Loader } from "../Loader";
 
 export default function CardInner() {
@@ -129,7 +130,7 @@ export default function CardInner() {
             />
           </div>
           <div className="flex flex-col pl-3">
-            <div className="font-semibold leading-none whitespace-nowrap text-gray-800">{name}</div>
+            <div className="font-semibold flex items-center leading-none whitespace-nowrap text-gray-800"><span className="mr-1">{name}</span> {profile.IsVerified ? <MdVerified className="text-blue-700" size={22} /> : null}</div>
             <div className="mt-1 leading-none text-gray-500 whitespace-nowrap">@{username}</div>
           </div>
           <div className="flex flex-col ml-auto">
