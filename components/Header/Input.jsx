@@ -6,6 +6,7 @@ import { useDesoStore } from "../../store/deso";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../store/constants";
 import * as ga from '../../lib/ga'
+import {NODE_API} from '../../lib/constants'
 
 export default function Input() {
   const router = useRouter()
@@ -51,11 +52,11 @@ export default function Input() {
     const request = {
         "PostHashHex": `${id}`,
     }
-    await axios.post(`https://node.deso.org/api/v0/get-single-post`, request).then((res) => {
+    await axios.post(`${NODE_API}/get-single-post`, request).then((res) => {
       const data = res.data;
       const post = data.PostFound
       setPostInfo(() => ({
-        profile_image_url: post?.ProfileEntryResponse?.ExtraData?.LargeProfilePicURL || `https://node.deso.org/api/v0/get-single-profile-picture/${post?.ProfileEntryResponse?.PublicKeyBase58Check}`,
+        profile_image_url: post?.ProfileEntryResponse?.ExtraData?.LargeProfilePicURL || `https://node.deso.org/api/v0/get-single-profile-picture/${post?.ProfileEntryResponse?.PublicKeyBase58Check}?fallback=https://desocialworld.com/assets/img/default_profile_pic.png`,
         name: post?.ProfileEntryResponse.Username,
         username: post?.ProfileEntryResponse.Username,
         text: post?.Body,
