@@ -82,6 +82,7 @@ export default function CardInner() {
 
   const node = nodes[post?.PostExtraData?.Node] || nodes[1]
 
+  //const nodeURL = (node.URL !== '') ? node.URL : `https://node.deso.org`;
   const nodeURL = (node.URL !== '') ? node.URL : `https://node.deso.org`;
 
   const LinkifyRenderLink = ({ attributes, content }) => {
